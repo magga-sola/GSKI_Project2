@@ -1,6 +1,11 @@
 
 class LinkedList():
     """ A singly linked list """
+    class Node:
+        """Lightweight, nonpublic class for storing a singly linked node."""
+        def __init__(self, element, next):
+            self. element = element
+            self. next = next
 
     def __init__(self,head=None,next=None):
         self.head = head
