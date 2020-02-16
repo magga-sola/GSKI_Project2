@@ -88,7 +88,7 @@ change the list in any way or allocate memory for new nodes or their data.
 
 """
 
-
+#### THIS ONE ACTUALLY WORKS!
 class ArrayDeque:
     def __init__(self):
         pass
@@ -129,3 +129,6 @@ class Queue:
 
 def palindrome(head):
     pass
+    """
+    let's see if this actually works
+    """
