@@ -87,7 +87,6 @@ Bonus 5% will be given for solutions that only go once through the list recursiv
 change the list in any way or allocate memory for new nodes or their data.
 
 """
-
 #### THIS ONE ACTUALLY WORKS!
 class ArrayDeque:
     def __init__(self):
@@ -96,7 +95,7 @@ class ArrayDeque:
         """ Returns a string with all the items in the deque, separated by a single space """
         pass
 
-    def push_back(self):
+    def push_back(self,value):
         """ Takes a parameter and adds its value to the back of the deque """
         pass
     def push_front(self):
