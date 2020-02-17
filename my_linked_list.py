@@ -34,7 +34,7 @@ class LinkedList():
 
         the_node = Node(val, None)
 
-        if self._size == 0:
+        if self.isEmpty():
             self._head = the_node
             self._tail = the_node
         else:
@@ -46,22 +46,24 @@ class LinkedList():
 
     def push_front(self,value):
         """ Takes a parameter and adds its value to the front of the list """
+        the_node = Node(value,self._head)
         if not self.isEmpty():
-            the_node = Node(value,self._head)
             self._head.next = self._head
             self._head = the_node
             self._size += 1
         else:
-            print("it's empty yo")
+            self._head = the_node
+            self._tail = the_node
 
     def pop_front(self):
         """ Removes the item from the front of the list and ​returns its value """
         if not self.isEmpty():
-            self._head = self._head.next
+            pop_value = self._head
+            self._head = self._head._next
             self._size -= 1
-            return self._head
+            return pop_value
         else:
-            return "this is empty"
+            return "None"
 
     def get_size(self):
         """ Returns the number of items currently in the list """
@@ -80,13 +82,13 @@ print("container of size: " + str(lis.get_size()) + ":")
 print(lis)
 
 
-"""
+
 # test pop front 1
 print(lis.pop_front())
 print(lis.pop_front())
 print("container of size: " + str(lis.get_size()) + ":")
 print(lis)
-"""
+
 
 # test push front 1
 lis.push_front(11)
@@ -95,7 +97,7 @@ lis.push_front(13)
 print("container of size: " + str(lis.get_size()) + ":")
 print(lis)
 
-"""
+
 # test pop front 2
 print(lis.pop_front())
 print(lis.pop_front())
@@ -103,11 +105,10 @@ print(lis.pop_front())
 print(lis.pop_front())
 print("container of size: " + str(lis.get_size()) + ":")
 print(lis)
-"""
-"""
+
+
 #test pop front 3
 print(lis.pop_front())
 print(lis.pop_front())
 print("container of size: " + str(lis.get_size()) + ":")
 print(lis)
-"""
