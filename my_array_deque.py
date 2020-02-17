@@ -66,16 +66,3 @@ class ArrayDeque():
         """ Returns the number of items currently in the deque """
         return self.size
 
-deque = ArrayDeque()
-
-deque.push_back(4)
-deque.push_back(5)
-deque.push_back(9)
-deque.push_front(3)
-print(deque)
-print(deque.pop_back())
-print(deque)
-print(deque.pop_front())
-print(deque)
-
-print(deque.get_size())
