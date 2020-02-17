@@ -36,7 +36,7 @@ in its constructor.
 
 ###### TESTS #######
 
-"""
+
 print("\nTESTING STACK WITH ARRAYS\n")
 
 stack = Stack("array")
@@ -49,7 +49,7 @@ print(stack.pop())
 print(stack.pop())
 print(stack.pop())
 print("the data structure is of size: " + str(stack.get_size()))
-"""
+
 
 print("\nTESTING STACK WITH LINKED_LIST\n")
 
