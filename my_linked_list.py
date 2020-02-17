@@ -1,41 +1,55 @@
+class Node:
+    """Lightweight, nonpublic class for storing a singly linked node."""
+    def __init__(self, element=None, next=None):
+        self._element = element
+        self._next = next
+    def __str__(self):
+        return str(self._element)
+
+
+
 
 class LinkedList():
     """ A singly linked list """
-    class Node:
-        """Lightweight, nonpublic class for storing a singly linked node."""
-        def __init__(self, element, next):
-            self._element = element
-            self._next = next
 
-    def __init__(self,head=None,next=None):
+    def __init__(self,head=None,next=None,tail=None):
         self._head = head
-        self._next = next
+        self._tail = tail
         self._size = 0
         
     def __str__(self):
         """ Returns a string with all the items in the list, separated by a single space """
         the_str = ""
-        if not self.isEmpty():
-            the_str += str(self._head)
-            self._head = self._next
+
+        i = self._head
+        while i != None:
+            the_str += str(i)
+            the_str += " "
+            i = i._next
         return the_str
 
     def isEmpty(self):
         return self._size == 0
 
-    def push_back(self,value):
-        """ Takes a parameter and adds its value to the back of the list """
-        value_node = self.Node(value,None)
-        self._size += 1
-        if self.isEmpty():
-            self._head = value_node
+
+    def push_back(self, val):
+
+        the_node = Node(val, None)
+
+        if self._size == 0:
+            self._head = the_node
+            self._tail = the_node
         else:
-            self._next = value_node
+            self._tail._next = the_node # this connects the last node with the new one
+            self._tail = the_node # this makes the new node count as the last one
+
+        self._size += 1
+
 
     def push_front(self,value):
         """ Takes a parameter and adds its value to the front of the list """
         if not self.isEmpty():
-            value_node = self.Node(value,self._head)
+            value_node = Node(value,self._head)
             self._head = value_node
             self._size += 1
         else:
@@ -44,8 +58,7 @@ class LinkedList():
     def pop_front(self):
         """ Removes the item from the front of the list and ​returns its value """
         if not self.isEmpty():
-            #answer = self._head #answer
-            self._head = self._next
+            self._head = self._head.next
             self._size -= 1
             return self._head
         else:
@@ -54,6 +67,7 @@ class LinkedList():
     def get_size(self):
         """ Returns the number of items currently in the list """
         return self._size
+
 
 
 print("\nTESTING LINKED_LIST\n")
