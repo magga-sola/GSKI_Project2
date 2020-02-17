@@ -10,7 +10,7 @@ class ArrayDeque():
         """ Returns a string with all the items in the deque, separated by a single space """
         return_string = ""
         for i in range(self.size):
-            return_string += str(self.arr[i]) + ", "
+            return_string += str(self.arr[i]) + " "
         return return_string
 
     def resize(self):
