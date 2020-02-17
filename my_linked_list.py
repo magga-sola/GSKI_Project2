@@ -54,6 +54,7 @@ class LinkedList():
         else:
             self._head = the_node
             self._tail = the_node
+            self._size += 1
 
     def pop_front(self):
         """ Removes the item from the front of the list and ​returns its value """

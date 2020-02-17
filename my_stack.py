@@ -11,7 +11,7 @@ class Stack:
 
     def push(self,value):
         """ Takes a parameter and adds its value onto the stack """
-        self.container.push_back(value)
+        self.container.push_front(value)
 
     def pop(self):
         """ Removes the item off the top of the stack and ​returns ​its value. if stack is empty returns None"""
@@ -36,7 +36,7 @@ in its constructor.
 
 ###### TESTS #######
 
-
+"""
 print("\nTESTING STACK WITH ARRAYS\n")
 
 stack = Stack("array")
@@ -49,17 +49,4 @@ print(stack.pop())
 print(stack.pop())
 print(stack.pop())
 print("the data structure is of size: " + str(stack.get_size()))
-
-
-print("\nTESTING STACK WITH LINKED_LIST\n")
-
-stack = Stack("linked")
-stack.push(2)
-stack.push(4)
-stack.push(7)
-print("the data structure is of size: " + str(stack.get_size()))
-print(stack.pop())
-print(stack.pop())
-print(stack.pop())
-print(stack.pop())
-print("the data structure is of size: " + str(stack.get_size()))
+"""
