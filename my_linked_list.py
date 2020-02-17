@@ -4,8 +4,8 @@ class LinkedList():
     class Node:
         """Lightweight, nonpublic class for storing a singly linked node."""
         def __init__(self, element, next):
-            self. element = element
-            self. next = next
+            self._element = element
+            self._next = next
 
     def __init__(self,head=None,next=None):
         self._head = head
@@ -29,6 +29,8 @@ class LinkedList():
         self._size += 1
         if self.isEmpty():
             self._head = value_node
+        else:
+            self._next = value_node
 
     def push_front(self,value):
         """ Takes a parameter and adds its value to the front of the list """
@@ -43,7 +45,7 @@ class LinkedList():
         """ Removes the item from the front of the list and ​returns its value """
         if not self.isEmpty():
             #answer = self._head #answer
-            self._head = self._head._next
+            self._head = self._next
             self._size -= 1
             return self._head
         else:
@@ -52,3 +54,33 @@ class LinkedList():
     def get_size(self):
         """ Returns the number of items currently in the list """
         return self._size
+
+
+print("\nTESTING LINKED_LIST\n")
+
+lis = LinkedList()
+lis.push_back(3)
+lis.push_back(1)
+lis.push_back(6)
+lis.push_back(9)
+print("container of size: " + str(lis.get_size()) + ":")
+print(lis)
+print(lis.pop_front())
+print(lis.pop_front())
+print("container of size: " + str(lis.get_size()) + ":")
+print(lis)
+lis.push_front(11)
+lis.push_front(16)
+lis.push_front(13)
+print("container of size: " + str(lis.get_size()) + ":")
+print(lis)
+print(lis.pop_front())
+print(lis.pop_front())
+print(lis.pop_front())
+print(lis.pop_front())
+print("container of size: " + str(lis.get_size()) + ":")
+print(lis)
+print(lis.pop_front())
+print(lis.pop_front())
+print("container of size: " + str(lis.get_size()) + ":")
+print(lis)
