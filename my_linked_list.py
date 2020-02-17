@@ -7,8 +7,6 @@ class Node:
         return str(self._element)
 
 
-
-
 class LinkedList():
     """ A singly linked list """
 
@@ -49,8 +47,9 @@ class LinkedList():
     def push_front(self,value):
         """ Takes a parameter and adds its value to the front of the list """
         if not self.isEmpty():
-            value_node = Node(value,self._head)
-            self._head = value_node
+            the_node = Node(value,self._head)
+            self._head.next = self._head
+            self._head = the_node
             self._size += 1
         else:
             print("it's empty yo")
@@ -79,22 +78,36 @@ lis.push_back(6)
 lis.push_back(9)
 print("container of size: " + str(lis.get_size()) + ":")
 print(lis)
+
+
+"""
+# test pop front 1
 print(lis.pop_front())
 print(lis.pop_front())
 print("container of size: " + str(lis.get_size()) + ":")
 print(lis)
+"""
+
+# test push front 1
 lis.push_front(11)
 lis.push_front(16)
 lis.push_front(13)
 print("container of size: " + str(lis.get_size()) + ":")
 print(lis)
+
+"""
+# test pop front 2
 print(lis.pop_front())
 print(lis.pop_front())
 print(lis.pop_front())
 print(lis.pop_front())
 print("container of size: " + str(lis.get_size()) + ":")
 print(lis)
+"""
+"""
+#test pop front 3
 print(lis.pop_front())
 print(lis.pop_front())
 print("container of size: " + str(lis.get_size()) + ":")
 print(lis)
+"""
