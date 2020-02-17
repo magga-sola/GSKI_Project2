@@ -3,8 +3,7 @@ class ArrayDeque():
     def __init__(self):
         self.size = 0
         self.capacity = 5
-        self.arr = [0] * self.capacity
-        self.start_index =  0
+        self.arr = [None] * self.capacity
 
     def __str__(self):
         """ Returns a string with all the items in the deque, separated by a single space """
@@ -44,9 +43,11 @@ class ArrayDeque():
         if self.size == 0:
             return None
         else:
-            self.arr[self.size] = self.arr[self.size - 1]
+            return_value = self.arr[self.size - 1]
+            for i in range(self.size -1, -1, 1):
+                self.arr[i] = self.arr[i + 1]
             self.size -= 1
-            return self.arr[self.size]
+            return return_value
 
     def pop_front(self):
         """ Removes the item from the front of the deque and returns its value """
@@ -54,9 +55,12 @@ class ArrayDeque():
         if self.size == 0:
             return None
         else:
-            self.arr[0] = self.arr[1]
-            self.size -= 1
-            return self.arr[0]
+            return_value = self.arr[0]
+            for i in range(self.size -1):
+                self.arr[i] = self.arr[i + 1]
+            self.size-=1
+            return return_value
+
 
     def get_size(self):
         """ Returns the number of items currently in the deque """
@@ -67,10 +71,10 @@ deque = ArrayDeque()
 deque.push_back(4)
 deque.push_back(5)
 deque.push_back(9)
-deque.push_front(9)
+deque.push_front(3)
 print(deque)
 print(deque.pop_back())
-print(deque.pop_back())
+print(deque)
 print(deque.pop_front())
 print(deque)
 
