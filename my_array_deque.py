@@ -28,20 +28,14 @@ class ArrayDeque():
         self.arr[self.size] = value
         self.size += 1
 
-    def push_front(self):
+    def push_front(self, value):
         """ Takes a parameter and adds its value to the front of the deque """
-        if index > self.size or index < 0:
-            raise IndexOutOfBounds()
-        if index == 0:
-            return self.prepend(value)
         if self.size == self.capacity:
             self.resize()
-        for i in range(self.size, 0, -1):
-            if i > index:
-                self.arr[i] = self.arr[i - 1]
-            elif i == index:
-                self.arr[i] = value
+        for i in range(self.size):
+            self.arr[self.size - i] = self.arr[self.size - (i+1)]
 
+        self.arr[0] = value
         self.size += 1
 
     def pop_back(self):
@@ -52,6 +46,7 @@ class ArrayDeque():
         else:
             self.arr[self.size] = self.arr[self.size - 1]
             self.size -= 1
+            return self.arr[self.size]
 
     def pop_front(self):
         """ Removes the item from the front of the deque and returns its value """
@@ -61,6 +56,7 @@ class ArrayDeque():
         else:
             self.arr[0] = self.arr[1]
             self.size -= 1
+            return self.arr[0]
 
     def get_size(self):
         """ Returns the number of items currently in the deque """
@@ -69,13 +65,13 @@ class ArrayDeque():
 deque = ArrayDeque()
 
 deque.push_back(4)
-print(deque)
 deque.push_back(5)
-print(deque)
 deque.push_back(9)
+deque.push_front(9)
 print(deque)
-deque.pop_back()
+print(deque.pop_back())
+print(deque.pop_back())
+print(deque.pop_front())
 print(deque)
-deque.pop_front()
-print(deque)
+
 print(deque.get_size())
