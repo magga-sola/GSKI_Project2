@@ -8,8 +8,9 @@ class LinkedList():
             self. next = next
 
     def __init__(self,head=None,next=None):
-        self.head = head
-        self.next = next
+        self._head = head
+        self._next = next
+        self._size = 0
         
     def __str__(self):
         """ Returns a string with all the items in the list, separated by a single space """
